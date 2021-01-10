@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--starter code for this project was provided by Wes Bos - https://Javascrip30.com 
+    background image credit to Photo by Gabriela Palai https://www.pexels.com/@gabriela-palai-129458?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More Cowbell!</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital@1&family=Oxygen:wght@300&family=Viga&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="drumset">
+        <div class="keys topRow">
+            <div data-key="82" class="key">
+                <kbd>r</kbd>
+                <span class="sound">crash</span>
+            </div>
+            <div data-key="84" class="key">
+                <kbd>t</kbd>
+                <span class="sound">tom</span>
+            </div>
+            <div data-key="89" class="key">
+                <kbd>y</kbd>
+                <span class="sound">tom</span>
+            </div>
+            <div data-key="85" class="key">
+                <kbd>u</kbd>
+                <span class="sound">crash</span>
+            </div>
+            <div data-key="73" class="key">
+                <kbd>i</kbd>
+                <span class="sound">tink</span>
+            </div>
+        </div>
+        <div class="keys middleRow">
+            <div data-key="68" class="key">
+                <kbd>d</kbd>
+                <span class="sound">clap</span>
+            </div>
+            <div data-key="70" class="key">
+                <kbd>f</kbd>
+                <span class="sound">hihat</span>
+            </div>
+            <div data-key="71" class="key">
+                <kbd>g</kbd>
+                <span class="sound">snare</span>
+            </div>
+            <div data-key="72" class="key">
+                <kbd>h</kbd>
+                <span class="sound">boom</span>
+            </div>
+            <div data-key="74" class="key">
+                <kbd>j</kbd>
+                <span class="sound">ride</span>
+            </div>
+        </div>
+        <div class="keys bottomRow">
+            <div data-key="86" class="key">
+                <kbd>v</kbd>
+                <span class="sound">kick</span>
+            </div>
+            <div data-key="78" class="key">
+                <kbd>n</kbd>
+                <span class="sound">kick</span>
+            </div>
+        </div>
+    </div>
+    <div class="mooText">moooooooooooooore.......</div>
+    <div class="keys cowbell">
+        <div data-key="67" class="key">
+            <kbd>c</kbd>
+            <span class="sound"></span>
+        </div>
+        <div data-key="79" class="key">
+            <kbd>o</kbd>
+            <span class="sound"></span>
+        </div>
+        <div data-key="87" class="key">
+            <kbd>w</kbd>
+            <span class="sound"></span>
+        </div>
+        <div data-key="66" class="key">
+            <kbd>b</kbd>
+            <span class="sound"></span>
+        </div>
+        <div data-key="69" class="key">
+            <kbd>e</kbd>
+            <span class="sound"></span>
+        </div>
+        <div data-key="76" class="key">
+            <kbd>l l</kbd>
+            <span class="sound"></span>
+        </div>
+    </div>
+    <audio data-key="67" src="sounds/Cowbell-1.wav"></audio>
+    <audio data-key="79" src="sounds/Cowbell-2.wav"></audio>
+    <audio data-key="87" src="sounds/Cowbell-3.wav"></audio>
+    <audio data-key="66" src="sounds/Cowbell-4.wav"></audio>
+    <audio data-key="69" src="sounds/Cowbell-5.wav"></audio>
+    <audio data-key="76" src="sounds/Cowbell-6.wav"></audio>
+    <audio data-key="68" src="sounds/clap.wav"></audio>
+    <audio data-key="70" src="sounds/hihat.wav"></audio>
+    <audio data-key="85" src="sounds/crash.wav"></audio>
+    <audio data-key="82" src="sounds/crash.wav"></audio>
+    <audio data-key="71" src="sounds/snare.wav"></audio>
+    <audio data-key="86" src="sounds/kick.wav"></audio>
+    <audio data-key="78" src="sounds/kick.wav"></audio>
+    <audio data-key="84" src="sounds/tom.wav"></audio>
+    <audio data-key="89" src="sounds/tom.wav"></audio>
+    <audio data-key="73" src="sounds/tink.wav"></audio>
+    <audio data-key="72" src="sounds/boom.wav"></audio>
+    <audio data-key="74" src="sounds/ride.wav"></audio>
+
+    <script>
+
+        function playSound(e) {
+            const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+            const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+            if (!audio) return;
+            audio.currentTime = 0;
+            audio.play();
+            key.classList.add('playing');
+
+        }
+
+        function removeTransition(e) {
+            if (e.propertyName !== 'transform') return;
+            this.classList.remove('playing');
+        }
+
+        const keys = document.querySelectorAll('.key');
+        keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+
+        window.addEventListener('keydown', playSound);
+
+
+    </script>
+
+
+</body>
+
+</html>

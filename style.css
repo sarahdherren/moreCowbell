@@ -1,0 +1,198 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html {
+    font-size: 62.5%;
+    background: url('./images/bigMoo.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    min-height: 100%;
+    
+}
+
+body {
+    font-family: 'Viga';
+    
+   
+}
+
+.keys {
+    display: flex;
+    min-height: 10%;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.key {
+    border: .1rem solid RGBa(255, 255, 255, 0.3);
+    border-radius: 50%;
+    margin: .5rem;
+    padding: 2.8rem .5rem 0rem;
+    width: 8rem;
+    height: 7rem;
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+    background: RGBa(112, 224, 0, .07);
+    transition: all .07s ease;
+    text-shadow: 0 0 .5rem black;
+    
+}
+
+.playing {
+    transform: scale(1.1);
+    border-color: #70e000;
+    box-shadow: 0 0 1rem 5rem #70e000;
+}
+
+kbd {
+    display: block;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-family: "Viga";
+    
+}
+
+.sound {
+    text-align: center;
+    font-size: 1.5rem;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    padding-top: .5rem;
+    color: #70e000;
+    font-family: "Oxygen";
+}
+
+.drumset {
+    position: absolute;
+    top: 40%;
+    left: 5%;
+} 
+
+.middleRow, .bottomRow {
+    margin-top: 1%;
+}
+.cowbell {
+    position: absolute;
+    bottom: 3%;
+    right: 5%;
+    
+}
+
+.mooText {
+    position: absolute;
+    bottom: 20%;
+    right: 28%;
+    font-size: 5rem;
+    font-family: "Lobster Two";
+    font-style: italic;
+    color: white;
+    
+}
+
+@media(max-width: 950px) {
+    .key {
+        margin: .5rem;
+        padding: 1rem .5rem 0rem;
+        width: 5rem;
+        height: 4rem;
+    }
+
+    kbd {
+        font-size: 2.5rem;
+    }
+
+    .drumset {
+        top: 20%;
+    }
+    .mooText {
+        bottom: 30%;
+        left: 5%;
+        
+    }
+
+    .cowbell {
+        bottom: 5%;
+        
+    }
+}
+
+@media(max-width: 600px) {
+    .drumset {
+        top: 5%;
+    }
+    .mooText {
+        font-size: 3rem;
+    }
+    .cowbell {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        bottom: 5%;
+    }
+}
+
+@media(max-width: 375px) {
+    .key {
+        width: 3rem;
+        height: 2rem;
+    }
+
+    kbd {
+        font-size: 1.5rem;
+    }
+    .sound {
+        font-size: 1rem;
+    }
+    .mooText {
+        font-size: 2.5rem;
+    }
+}
+
